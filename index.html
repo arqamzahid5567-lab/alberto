@@ -1,0 +1,4354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALBERTO — Maison of Luxury Timepieces</title>
+
+<meta name="description"
+content="ALBERTO Luxury Watches — Exceptional timepieces crafted for distinction, precision and timeless elegance.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ALBERTO LUXURY SYSTEM
+========================================================= */
+
+:root{
+
+    --gold:#d4af37;
+    --gold-light:#f5df91;
+    --gold-bright:#ffe9a6;
+    --gold-dark:#8f681c;
+
+    --black:#030303;
+    --black2:#070707;
+    --black3:#0c0c0c;
+    --panel:#111111;
+
+    --white:#ffffff;
+    --muted:#999;
+    --border:rgba(212,175,55,.20);
+
+    --shadow:
+        0 30px 90px rgba(0,0,0,.65);
+
+    --gold-shadow:
+        0 15px 50px rgba(212,175,55,.15);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(212,175,55,.035),
+            transparent 30%
+        ),
+        #030303;
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+body.loading{
+    overflow:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+}
+
+::selection{
+    background:var(--gold);
+    color:#000;
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#020202;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    transition:1s;
+}
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+}
+
+.loader-logo{
+
+    width:90px;
+    height:90px;
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    box-shadow:
+        0 0 40px rgba(212,175,55,.15),
+        inset 0 0 30px rgba(212,175,55,.08);
+
+    animation:loaderPulse 2s infinite;
+}
+
+.loader-logo span{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:45px;
+
+    color:var(--gold-light);
+}
+
+.loader-name{
+
+    margin-top:25px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    letter-spacing:8px;
+
+    font-size:25px;
+
+    color:var(--gold-light);
+}
+
+.loader-line{
+
+    width:180px;
+
+    height:1px;
+
+    background:#222;
+
+    margin-top:20px;
+
+    overflow:hidden;
+}
+
+.loader-line::after{
+
+    content:"";
+
+    display:block;
+
+    width:50%;
+
+    height:100%;
+
+    background:var(--gold);
+
+    animation:loaderLine 1.5s infinite;
+}
+
+@keyframes loaderPulse{
+
+    50%{
+        box-shadow:
+        0 0 70px rgba(212,175,55,.30),
+        inset 0 0 30px rgba(212,175,55,.15);
+    }
+}
+
+@keyframes loaderLine{
+
+    from{
+        transform:translateX(-100%);
+    }
+
+    to{
+        transform:translateX(300%);
+    }
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar{
+
+    height:36px;
+
+    background:#000;
+
+    border-bottom:1px solid rgba(212,175,55,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#999;
+}
+
+.top-bar span{
+
+    color:var(--gold-light);
+
+    font-weight:600;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:5000;
+
+    background:rgba(3,3,3,.78);
+
+    backdrop-filter:blur(25px);
+
+    -webkit-backdrop-filter:blur(25px);
+
+    border-bottom:1px solid rgba(212,175,55,.12);
+}
+
+.navbar{
+
+    min-height:92px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    position:relative;
+}
+
+.logo-symbol{
+
+    width:58px;
+    height:58px;
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.20),
+            transparent 68%
+        );
+
+    box-shadow:
+
+        0 0 25px rgba(212,175,55,.12),
+
+        inset 0 0 20px rgba(212,175,55,.08);
+
+    transition:.5s;
+}
+
+.logo:hover .logo-symbol{
+
+    transform:rotate(8deg);
+
+    box-shadow:
+
+        0 0 40px rgba(212,175,55,.25),
+
+        inset 0 0 25px rgba(212,175,55,.15);
+}
+
+.logo-symbol::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:50%;
+}
+
+.logo-symbol .crown{
+
+    position:absolute;
+
+    top:5px;
+
+    font-size:11px;
+
+    color:var(--gold-bright);
+}
+
+.logo-symbol .letter{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:31px;
+
+    font-weight:700;
+
+    color:var(--gold-light);
+}
+
+.logo-symbol .hand{
+
+    position:absolute;
+
+    width:1px;
+
+    height:18px;
+
+    bottom:10px;
+
+    background:var(--gold);
+
+    transform:rotate(35deg);
+
+    transform-origin:bottom;
+}
+
+.logo-text h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+
+    letter-spacing:6px;
+
+    color:var(--gold-light);
+}
+
+.logo-text p{
+
+    font-size:7px;
+
+    letter-spacing:4px;
+
+    color:#777;
+
+    margin-top:-3px;
+}
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:34px;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    position:relative;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#bdbdbd;
+
+    transition:.35s;
+}
+
+.nav-links a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-12px;
+
+    width:0;
+
+    height:1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    transform:translateX(-50%);
+
+    transition:.35s;
+}
+
+.nav-links a:hover{
+
+    color:var(--gold-light);
+}
+
+.nav-links a:hover::before{
+
+    width:100%;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:calc(100vh - 128px);
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.97) 0%,
+            rgba(0,0,0,.84) 38%,
+            rgba(0,0,0,.45) 75%,
+            rgba(0,0,0,.20)
+        ),
+
+        url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(212,175,55,.16),
+            transparent 25%
+        );
+
+    animation:heroGlow 5s ease-in-out infinite alternate;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black,
+        transparent
+    );
+
+    pointer-events:none;
+}
+
+@keyframes heroGlow{
+
+    from{
+        opacity:.5;
+        transform:scale(1);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.15);
+    }
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:760px;
+
+    animation:heroContent 1.2s ease both;
+}
+
+@keyframes heroContent{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-eyebrow{
+
+    color:var(--gold-light);
+
+    font-size:11px;
+
+    letter-spacing:7px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(65px,9vw,120px);
+
+    line-height:.83;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+}
+
+.hero h1 span{
+
+    background:
+
+        linear-gradient(
+            110deg,
+            #8f681c,
+            #f9e39b,
+            #fff3bd,
+            #b68a2c
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    background-size:200% auto;
+
+    animation:goldMove 5s linear infinite;
+}
+
+@keyframes goldMove{
+
+    to{
+        background-position:200% center;
+    }
+}
+
+.hero p{
+
+    max-width:610px;
+
+    margin:35px 0;
+
+    color:#b5b5b5;
+
+    font-size:14px;
+
+    line-height:2;
+
+    font-weight:300;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+
+    min-height:50px;
+
+    padding:0 30px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid var(--gold);
+
+    letter-spacing:2px;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    text-transform:uppercase;
+}
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:70%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.7s;
+}
+
+.btn:hover::before{
+
+    left:150%;
+}
+
+.btn-gold{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #8f681c,
+            #f5dc7b,
+            #b78928
+        );
+
+    color:#050505;
+
+    box-shadow:
+        0 10px 30px rgba(212,175,55,.12);
+}
+
+.btn-gold:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 45px rgba(212,175,55,.25);
+}
+
+.btn-outline{
+
+    background:rgba(0,0,0,.30);
+
+    color:var(--gold-light);
+}
+
+.btn-outline:hover{
+
+    background:var(--gold);
+
+    color:#000;
+
+    transform:translateY(-4px);
+}
+
+/* =========================================================
+   HERO STATS
+========================================================= */
+
+.hero-stats{
+
+    display:flex;
+
+    gap:55px;
+
+    margin-top:65px;
+
+    flex-wrap:wrap;
+}
+
+.hero-stat strong{
+
+    display:block;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:32px;
+
+    color:var(--gold-light);
+}
+
+.hero-stat span{
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#777;
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:65px;
+}
+
+.section-title small{
+
+    color:var(--gold-light);
+
+    letter-spacing:5px;
+
+    font-size:9px;
+}
+
+.section-title h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(45px,5vw,65px);
+
+    font-weight:500;
+
+    margin:12px 0;
+}
+
+.section-title p{
+
+    color:#777;
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:1.9;
+
+    font-size:13px;
+}
+
+.section-title::after{
+
+    content:"";
+
+    display:block;
+
+    width:55px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:25px auto 0;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features{
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0,
+            rgba(212,175,55,.07),
+            transparent 35%
+        ),
+
+        #060606;
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1px;
+
+    background:rgba(212,175,55,.15);
+
+    border:1px solid rgba(212,175,55,.15);
+}
+
+.feature{
+
+    padding:45px 25px;
+
+    background:#080808;
+
+    text-align:center;
+
+    position:relative;
+
+    transition:.5s;
+}
+
+.feature:hover{
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,.09),
+            #080808 65%
+        );
+
+    transform:translateY(-8px);
+
+    z-index:2;
+}
+
+.feature-icon{
+
+    font-size:27px;
+
+    color:var(--gold-light);
+
+    margin-bottom:22px;
+}
+
+.feature h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:27px;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+}
+
+.feature p{
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.category{
+
+    height:470px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    background:#090909;
+
+    cursor:pointer;
+}
+
+.category img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:1s;
+}
+
+.category::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent 30%,
+            rgba(0,0,0,.95)
+        );
+}
+
+.category::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-50%;
+
+    width:30%;
+
+    height:300%;
+
+    background:rgba(255,255,255,.08);
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+    z-index:2;
+}
+
+.category:hover img{
+
+    transform:scale(1.10);
+
+    filter:brightness(1.1);
+}
+
+.category:hover::after{
+
+    left:120%;
+}
+
+.category-content{
+
+    position:absolute;
+
+    left:35px;
+
+    bottom:35px;
+
+    z-index:3;
+}
+
+.category-content small{
+
+    color:var(--gold-light);
+
+    letter-spacing:4px;
+
+    font-size:10px;
+}
+
+.category-content h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:45px;
+
+    font-weight:500;
+
+    margin:8px 0 18px;
+}
+
+.category-content a{
+
+    color:var(--gold-light);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.product-section{
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0,
+            rgba(212,175,55,.045),
+            transparent 30%
+        ),
+
+        #050505;
+}
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.watch-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #131313,
+            #070707
+        );
+
+    border:1px solid rgba(212,175,55,.14);
+
+    cursor:pointer;
+
+    transition:.55s;
+
+    transform:translateY(0);
+}
+
+.watch-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            white,
+            var(--gold),
+            transparent
+        );
+
+    z-index:5;
+
+    transition:.7s;
+}
+
+.watch-card:hover::before{
+
+    left:120%;
+}
+
+.watch-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:rgba(212,175,55,.7);
+
+    box-shadow:
+
+        0 30px 70px rgba(0,0,0,.7),
+
+        0 0 35px rgba(212,175,55,.09);
+}
+
+.watch-image{
+
+    height:370px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#111;
+}
+
+.watch-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.8s;
+}
+
+.watch-card:hover .watch-image img{
+
+    transform:scale(1.07);
+
+    filter:brightness(1.08);
+}
+
+.watch-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(0,0,0,.45)
+        );
+
+    pointer-events:none;
+}
+
+.watch-badge{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    z-index:4;
+
+    padding:8px 13px;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(212,175,55,.7);
+
+    color:var(--gold-light);
+
+    font-size:8px;
+
+    letter-spacing:2px;
+}
+
+.watch-info{
+
+    padding:25px;
+}
+
+.watch-info h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:29px;
+
+    font-weight:500;
+
+    transition:.3s;
+}
+
+.watch-card:hover h3{
+
+    color:var(--gold-light);
+}
+
+.watch-info .type{
+
+    color:#666;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin:6px 0 20px;
+}
+
+.watch-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.price{
+
+    color:var(--gold-light);
+
+    font-size:15px;
+
+    font-weight:600;
+}
+
+.order-btn{
+
+    border:1px solid rgba(212,175,55,.7);
+
+    background:transparent;
+
+    color:var(--gold-light);
+
+    padding:11px 18px;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    transition:.4s;
+}
+
+.order-btn:hover{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #9c7220,
+            #f3d978,
+            #a77b20
+        );
+
+    color:#000;
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,.2);
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+
+    background:#030303;
+}
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.about-image{
+
+    height:620px;
+
+    position:relative;
+
+    border:1px solid rgba(212,175,55,.20);
+
+    padding:8px;
+}
+
+.about-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    z-index:2;
+
+    pointer-events:none;
+}
+
+.about-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    filter:brightness(.8);
+
+    transition:.7s;
+}
+
+.about-image:hover img{
+
+    filter:brightness(1);
+}
+
+.about-content small{
+
+    color:var(--gold-light);
+
+    letter-spacing:5px;
+
+    font-size:10px;
+}
+
+.about-content h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:70px;
+
+    line-height:.9;
+
+    font-weight:500;
+
+    margin:22px 0 30px;
+}
+
+.about-content p{
+
+    color:#858585;
+
+    line-height:2;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.about-signature{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--gold-light);
+
+    font-size:38px;
+
+    letter-spacing:4px;
+
+    margin-top:35px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.92)
+        ),
+
+        url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1800&q=85");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    border-top:1px solid rgba(212,175,55,.15);
+
+    border-bottom:1px solid rgba(212,175,55,.15);
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+
+    padding:35px;
+
+    text-align:center;
+
+    border-right:1px solid rgba(212,175,55,.18);
+}
+
+.stat:last-child{
+
+    border-right:0;
+}
+
+.stat strong{
+
+    display:block;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:60px;
+
+    font-weight:500;
+
+    color:var(--gold-light);
+}
+
+.stat span{
+
+    color:#888;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+
+    background:#070707;
+}
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+}
+
+.contact-info h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:48px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+}
+
+.contact-info p{
+
+    color:#777;
+
+    line-height:1.9;
+
+    font-size:13px;
+
+    max-width:500px;
+}
+
+.contact-item{
+
+    margin:25px 0;
+
+    padding-left:18px;
+
+    border-left:1px solid var(--gold);
+}
+
+.contact-item strong{
+
+    display:block;
+
+    color:var(--gold-light);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:7px;
+}
+
+.contact-item span{
+
+    color:#aaa;
+
+    font-size:13px;
+}
+
+.contact-form{
+
+    padding:40px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #121212,
+            #080808
+        );
+
+    border:1px solid rgba(212,175,55,.16);
+
+    box-shadow:var(--shadow);
+}
+
+.form-group{
+
+    margin-bottom:18px;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#777;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    margin-bottom:9px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    background:#050505;
+
+    border:1px solid #222;
+
+    color:#fff;
+
+    padding:15px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.07);
+}
+
+.form-group textarea{
+
+    min-height:140px;
+
+    resize:vertical;
+}
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location{
+
+    background:#030303;
+}
+
+.location-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.5fr;
+
+    gap:25px;
+}
+
+.location-info{
+
+    padding:45px;
+
+    background:#0a0a0a;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    position:relative;
+}
+
+.location-info::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:80px;
+
+    height:1px;
+
+    background:var(--gold);
+}
+
+.location-info h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--gold-light);
+
+    font-size:43px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+}
+
+.location-info p{
+
+    color:#777;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+.map{
+
+    min-height:450px;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    overflow:hidden;
+
+    filter:grayscale(.85);
+}
+
+.map iframe{
+
+    width:100%;
+
+    height:100%;
+
+    min-height:450px;
+
+    border:0;
+}
+
+/* =========================================================
+   SITEMAP
+========================================================= */
+
+.sitemap{
+
+    background:#070707;
+
+    border-top:1px solid rgba(212,175,55,.10);
+}
+
+.sitemap-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+}
+
+.sitemap-column h3{
+
+    color:var(--gold-light);
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:26px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+}
+
+.sitemap-column a{
+
+    display:block;
+
+    color:#666;
+
+    font-size:11px;
+
+    margin:12px 0;
+
+    transition:.3s;
+}
+
+.sitemap-column a:hover{
+
+    color:var(--gold-light);
+
+    transform:translateX(5px);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:55px 0;
+
+    background:#000;
+
+    border-top:1px solid rgba(212,175,55,.18);
+
+    text-align:center;
+}
+
+.footer-logo{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:32px;
+
+    letter-spacing:8px;
+
+    color:var(--gold-light);
+}
+
+.footer-tagline{
+
+    margin-top:10px;
+
+    color:#555;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+footer p{
+
+    color:#444;
+
+    font-size:9px;
+
+    margin-top:25px;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9000;
+
+    background:rgba(0,0,0,.92);
+
+    backdrop-filter:blur(18px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.active{
+
+    display:flex;
+
+    animation:modalFade .35s ease;
+}
+
+@keyframes modalFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:1050px;
+
+    max-height:92vh;
+
+    overflow:auto;
+
+    background:#0a0a0a;
+
+    border:1px solid var(--gold);
+
+    box-shadow:
+
+        0 40px 120px rgba(0,0,0,.9),
+
+        0 0 50px rgba(212,175,55,.08);
+
+    position:relative;
+
+    animation:modalBox .45s ease;
+}
+
+@keyframes modalBox{
+
+    from{
+        transform:scale(.94) translateY(20px);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1) translateY(0);
+        opacity:1;
+    }
+}
+
+.close-modal{
+
+    position:absolute;
+
+    right:18px;
+
+    top:18px;
+
+    z-index:20;
+
+    width:42px;
+
+    height:42px;
+
+    border:1px solid var(--gold);
+
+    background:rgba(0,0,0,.8);
+
+    color:var(--gold-light);
+
+    font-size:22px;
+
+    transition:.3s;
+}
+
+.close-modal:hover{
+
+    background:var(--gold);
+
+    color:#000;
+}
+
+.product-detail{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+}
+
+.detail-image{
+
+    min-height:580px;
+
+    background:#111;
+
+    overflow:hidden;
+}
+
+.detail-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.7s;
+}
+
+.detail-content{
+
+    padding:60px 50px;
+}
+
+.detail-content small{
+
+    color:var(--gold-light);
+
+    font-size:9px;
+
+    letter-spacing:4px;
+}
+
+.detail-content h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:58px;
+
+    font-weight:500;
+
+    margin:12px 0;
+}
+
+.detail-price{
+
+    color:var(--gold-light);
+
+    font-size:23px;
+
+    margin-bottom:22px;
+}
+
+.detail-description{
+
+    color:#777;
+
+    line-height:1.9;
+
+    font-size:13px;
+
+    margin-bottom:30px;
+}
+
+.specs{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:1px;
+
+    background:#222;
+
+    margin-bottom:30px;
+}
+
+.spec{
+
+    padding:18px;
+
+    background:#0b0b0b;
+}
+
+.spec span{
+
+    display:block;
+
+    color:#555;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-bottom:7px;
+}
+
+.spec strong{
+
+    color:#ddd;
+
+    font-size:11px;
+}
+
+/* =========================================================
+   ORDER FORM
+========================================================= */
+
+.order-form{
+
+    display:none;
+
+    padding:55px;
+}
+
+.order-form.active{
+
+    display:block;
+}
+
+.order-form h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:55px;
+
+    font-weight:500;
+
+    color:var(--gold-light);
+
+    margin-bottom:10px;
+}
+
+.order-product{
+
+    color:#777;
+
+    margin-bottom:30px;
+
+    font-size:13px;
+}
+
+.order-product strong{
+
+    color:#ddd;
+}
+
+.back-btn{
+
+    border:0;
+
+    background:none;
+
+    color:#777;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    margin-bottom:25px;
+
+    transition:.3s;
+}
+
+.back-btn:hover{
+
+    color:var(--gold-light);
+}
+
+.success-message{
+
+    display:none;
+
+    padding:25px;
+
+    border:1px solid var(--gold);
+
+    background:rgba(212,175,55,.04);
+
+    color:var(--gold-light);
+
+    line-height:1.7;
+
+    margin-top:20px;
+}
+
+.success-message.show{
+
+    display:block;
+
+    animation:success .5s ease;
+}
+
+@keyframes success{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#030303;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+        linear-gradient(
+            var(--gold-dark),
+            var(--gold)
+        );
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .feature-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .categories{
+
+        grid-template-columns:1fr;
+    }
+
+    .category{
+
+        height:400px;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .location-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .sitemap-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nav-links{
+
+        gap:18px;
+    }
+}
+
+@media(max-width:700px){
+
+    section{
+
+        padding:80px 0;
+    }
+
+    .top-bar{
+
+        font-size:8px;
+
+        letter-spacing:1.5px;
+    }
+
+    .navbar{
+
+        min-height:auto;
+
+        padding:18px 0;
+
+        flex-direction:column;
+
+        gap:18px;
+    }
+
+    .nav-links{
+
+        gap:15px;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+    }
+
+    .nav-links a{
+
+        font-size:9px;
+    }
+
+    .hero{
+
+        min-height:720px;
+
+        background-position:62% center;
+    }
+
+    .hero h1{
+
+        font-size:62px;
+    }
+
+    .hero-eyebrow{
+
+        letter-spacing:4px;
+    }
+
+    .hero-stats{
+
+        gap:25px;
+
+        margin-top:45px;
+    }
+
+    .feature-grid,
+    .product-grid,
+    .stats-grid,
+    .sitemap-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .category{
+
+        height:430px;
+    }
+
+    .about-image{
+
+        height:450px;
+    }
+
+    .about-content h2{
+
+        font-size:55px;
+    }
+
+    .stat{
+
+        border-right:0;
+
+        border-bottom:1px solid rgba(212,175,55,.15);
+    }
+
+    .stat:last-child{
+
+        border-bottom:0;
+    }
+
+    .product-detail{
+
+        grid-template-columns:1fr;
+    }
+
+    .detail-image{
+
+        min-height:350px;
+
+        height:350px;
+    }
+
+    .detail-content,
+    .order-form{
+
+        padding:30px;
+    }
+
+    .detail-content h2,
+    .order-form h2{
+
+        font-size:42px;
+    }
+
+    .logo-text h2{
+
+        font-size:23px;
+    }
+
+    .logo-symbol{
+
+        width:50px;
+
+        height:50px;
+    }
+
+    .contact-form{
+
+        padding:25px;
+    }
+
+    .location-info{
+
+        padding:30px;
+    }
+}
+
+</style>
+
+</head>
+
+<body class="loading">
+
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        <span>A</span>
+    </div>
+
+    <div class="loader-name">
+        ALBERTO
+    </div>
+
+    <div class="loader-line"></div>
+
+</div>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="top-bar">
+
+    <span>ALBERTO PRIVÉ</span>
+
+    &nbsp; — &nbsp;
+
+    Complimentary luxury delivery on selected timepieces
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="#home" class="logo">
+
+    <div class="logo-symbol">
+
+        <span class="crown">♛</span>
+
+        <span class="letter">A</span>
+
+        <span class="hand"></span>
+
+    </div>
+
+    <div class="logo-text">
+
+        <h2>ALBERTO</h2>
+
+        <p>LUXURY WATCHES</p>
+
+    </div>
+
+</a>
+
+
+<ul class="nav-links">
+
+    <li>
+        <a href="#home">Home</a>
+    </li>
+
+    <li>
+        <a href="#shop">Collection</a>
+    </li>
+
+    <li>
+        <a href="#about">Maison</a>
+    </li>
+
+    <li>
+        <a href="#contact">Private Service</a>
+    </li>
+
+    <li>
+        <a href="#location">Boutique</a>
+    </li>
+
+</ul>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-eyebrow">
+    EST. 2026 — ALBERTO PRIVÉ
+</div>
+
+<h1>
+
+    Time Is<br>
+
+    <span>Your Legacy.</span>
+
+</h1>
+
+<p>
+
+    Discover ALBERTO — a distinguished collection of luxury
+    timepieces created for those who appreciate exceptional
+    design, precision and timeless sophistication.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#shop" class="btn btn-gold">
+    Explore Collection
+</a>
+
+<a href="#about" class="btn btn-outline">
+    Discover ALBERTO
+</a>
+
+</div>
+
+
+<div class="hero-stats">
+
+<div class="hero-stat">
+
+<strong>18+</strong>
+
+<span>TIMEPIECES</span>
+
+</div>
+
+<div class="hero-stat">
+
+<strong>10Y</strong>
+
+<span>WARRANTY</span>
+
+</div>
+
+<div class="hero-stat">
+
+<strong>100M</strong>
+
+<span>WATER RESISTANCE</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="features">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>THE ALBERTO STANDARD</small>
+
+<h2>Crafted For Distinction</h2>
+
+<p>
+Every ALBERTO detail is selected to create a refined
+and memorable timepiece.
+</p>
+
+</div>
+
+
+<div class="feature-grid reveal">
+
+
+<div class="feature">
+
+<div class="feature-icon">♛</div>
+
+<h3>Maison Design</h3>
+
+<p>
+Distinctive silhouettes created with timeless luxury
+in mind.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">◈</div>
+
+<h3>Fine Materials</h3>
+
+<p>
+Premium steel, refined finishes and sapphire crystal.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">◷</div>
+
+<h3>Precision</h3>
+
+<p>
+Reliable movements engineered for dependable
+timekeeping.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">✦</div>
+
+<h3>Private Service</h3>
+
+<p>
+A dedicated experience for every ALBERTO client.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTION
+===================================================== -->
+
+<section id="shop">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>THE ALBERTO COLLECTION</small>
+
+<h2>Three Expressions of Luxury</h2>
+
+<p>
+Explore timepieces created for individuality,
+elegance and connection.
+</p>
+
+</div>
+
+
+<div class="categories reveal">
+
+
+<div class="category">
+
+<img
+src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=90"
+alt="Men's luxury watch">
+
+<div class="category-content">
+
+<small>01 — MEN</small>
+
+<h3>Men's</h3>
+
+<a href="#mens">
+EXPLORE COLLECTION →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="category">
+
+<img
+src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1000&q=90"
+alt="Women's luxury watch">
+
+<div class="category-content">
+
+<small>02 — WOMEN</small>
+
+<h3>Women's</h3>
+
+<a href="#womens">
+EXPLORE COLLECTION →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="category">
+
+<img
+src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1000&q=90"
+alt="Couple watches">
+
+<div class="category-content">
+
+<small>03 — TOGETHER</small>
+
+<h3>Couple</h3>
+
+<a href="#couple">
+EXPLORE COLLECTION →
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MEN
+===================================================== -->
+
+<section class="product-section" id="mens">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>ALBERTO HOMME</small>
+
+<h2>Men's Watches</h2>
+
+<p>
+Bold proportions and refined character for distinguished
+personalities.
+</p>
+
+</div>
+
+<div class="product-grid reveal" id="mensGrid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WOMEN
+===================================================== -->
+
+<section id="womens">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>ALBERTO FEMME</small>
+
+<h2>Women's Watches</h2>
+
+<p>
+Elegant timepieces designed around graceful luxury.
+</p>
+
+</div>
+
+<div class="product-grid reveal" id="womensGrid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COUPLE
+===================================================== -->
+
+<section class="product-section" id="couple">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>ALBERTO TOGETHER</small>
+
+<h2>Couple Collection</h2>
+
+<p>
+Two timepieces. One timeless story.
+</p>
+
+</div>
+
+<div class="product-grid reveal" id="coupleGrid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div class="about-image reveal">
+
+<img
+src="https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=1200&q=90"
+alt="Luxury watch">
+
+</div>
+
+
+<div class="about-content reveal">
+
+<small>THE ALBERTO MAISON</small>
+
+<h2>
+
+Time Becomes<br>
+
+Legacy.
+
+</h2>
+
+<p>
+
+ALBERTO was created around one philosophy:
+a watch should be more than an instrument that
+tells time.
+
+</p>
+
+<p>
+
+It should become part of your identity, accompany
+your milestones and remain meaningful through
+generations.
+
+</p>
+
+<p>
+
+Our collections combine contemporary luxury with
+timeless watchmaking aesthetics.
+
+</p>
+
+<div class="about-signature">
+
+ALBERTO
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+
+<div class="stat reveal">
+
+<strong>18+</strong>
+
+<span>EXCLUSIVE MODELS</span>
+
+</div>
+
+
+<div class="stat reveal">
+
+<strong>10</strong>
+
+<span>YEARS WARRANTY</span>
+
+</div>
+
+
+<div class="stat reveal">
+
+<strong>100M</strong>
+
+<span>WATER RESISTANCE</span>
+
+</div>
+
+
+<div class="stat reveal">
+
+<strong>24/7</strong>
+
+<span>ONLINE SUPPORT</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>PRIVATE CLIENT SERVICE</small>
+
+<h2>Let's Talk</h2>
+
+<p>
+Our team is available to assist you with your ALBERTO
+selection.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-info reveal">
+
+<h3>Private Service</h3>
+
+<p>
+
+Whether you are selecting your first ALBERTO or
+looking for a meaningful gift, our team is here
+to assist you.
+
+</p>
+
+
+<div class="contact-item">
+
+<strong>PHONE</strong>
+
+<span>
++92 300 0000000
+</span>
+
+</div>
+
+
+<div class="contact-item">
+
+<strong>EMAIL</strong>
+
+<span>
+info@albertowatches.com
+</span>
+
+</div>
+
+
+<div class="contact-item">
+
+<strong>HOURS</strong>
+
+<span>
+Monday — Saturday | 11:00 AM — 9:00 PM
+</span>
+
+</div>
+
+</div>
+
+
+<form class="contact-form reveal" id="contactForm">
+
+
+<div class="form-group">
+
+<label>YOUR NAME</label>
+
+<input
+type="text"
+required
+placeholder="Enter your name">
+
+</div>
+
+
+<div class="form-group">
+
+<label>EMAIL</label>
+
+<input
+type="email"
+required
+placeholder="Enter your email">
+
+</div>
+
+
+<div class="form-group">
+
+<label>MESSAGE</label>
+
+<textarea
+required
+placeholder="How may we assist you?"></textarea>
+
+</div>
+
+
+<button
+class="btn btn-gold"
+type="submit">
+
+SEND MESSAGE
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LOCATION
+===================================================== -->
+
+<section class="location" id="location">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>THE ALBERTO BOUTIQUE</small>
+
+<h2>Visit Us</h2>
+
+</div>
+
+
+<div class="location-grid">
+
+
+<div class="location-info reveal">
+
+<h3>
+Karachi Boutique
+</h3>
+
+<p>
+
+Experience the ALBERTO collection in person and
+discover the details behind every timepiece.
+
+</p>
+
+<br>
+
+<p>
+
+<strong style="color:#d4af37;">
+ADDRESS
+</strong>
+
+<br>
+
+Karachi, Sindh, Pakistan
+
+</p>
+
+<br>
+
+<p>
+
+<strong style="color:#d4af37;">
+PHONE
+</strong>
+
+<br>
+
++92 300 0000000
+
+</p>
+
+<br>
+
+<p>
+
+<strong style="color:#d4af37;">
+OPENING HOURS
+</strong>
+
+<br>
+
+Monday — Saturday
+
+<br>
+
+11:00 AM — 9:00 PM
+
+</p>
+
+</div>
+
+
+<div class="map reveal">
+
+<iframe
+
+src="https://www.google.com/maps?q=Karachi,Pakistan&output=embed"
+
+loading="lazy">
+
+</iframe>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SITEMAP
+===================================================== -->
+
+<section class="sitemap">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<small>ALBERTO NAVIGATION</small>
+
+<h2>Site Map</h2>
+
+</div>
+
+
+<div class="sitemap-grid">
+
+
+<div class="sitemap-column">
+
+<h3>Explore</h3>
+
+<a href="#home">Home</a>
+
+<a href="#shop">Collection</a>
+
+<a href="#mens">Men's Watches</a>
+
+<a href="#womens">Women's Watches</a>
+
+<a href="#couple">Couple Watches</a>
+
+</div>
+
+
+<div class="sitemap-column">
+
+<h3>Maison</h3>
+
+<a href="#about">About ALBERTO</a>
+
+<a href="#contact">Private Service</a>
+
+<a href="#location">Boutique</a>
+
+</div>
+
+
+<div class="sitemap-column">
+
+<h3>Services</h3>
+
+<a href="#shop">Order Watches</a>
+
+<a href="#contact">Customer Support</a>
+
+<a href="#location">Visit Boutique</a>
+
+</div>
+
+
+<div class="sitemap-column">
+
+<h3>ALBERTO</h3>
+
+<a href="#home">Luxury Watches</a>
+
+<a href="#shop">Collections</a>
+
+<a href="#about">Our Story</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-logo">
+ALBERTO
+</div>
+
+<div class="footer-tagline">
+MAISON OF LUXURY TIMEPIECES
+</div>
+
+<p>
+© <span id="year"></span>
+ALBERTO Luxury Watches.
+All Rights Reserved.
+</p>
+
+</footer>
+
+
+<!-- =====================================================
+     PRODUCT MODAL
+===================================================== -->
+
+<div class="modal" id="productModal">
+
+<div class="modal-box">
+
+
+<button
+class="close-modal"
+onclick="closeModal()">
+
+×
+
+</button>
+
+
+<!-- PRODUCT DETAIL -->
+
+<div
+class="product-detail"
+id="productDetail">
+
+
+<div class="detail-image">
+
+<img
+id="detailImage"
+src=""
+alt="Luxury watch">
+
+</div>
+
+
+<div class="detail-content">
+
+<small id="detailCategory">
+ALBERTO COLLECTION
+</small>
+
+<h2 id="detailName">
+Watch Name
+</h2>
+
+<div
+class="detail-price"
+id="detailPrice">
+
+$0
+
+</div>
+
+<p
+class="detail-description"
+id="detailDescription">
+</p>
+
+
+<div class="specs">
+
+
+<div class="spec">
+
+<span>MOVEMENT</span>
+
+<strong id="detailMovement"></strong>
+
+</div>
+
+
+<div class="spec">
+
+<span>CASE</span>
+
+<strong id="detailCase"></strong>
+
+</div>
+
+
+<div class="spec">
+
+<span>GLASS</span>
+
+<strong id="detailGlass"></strong>
+
+</div>
+
+
+<div class="spec">
+
+<span>WATER</span>
+
+<strong id="detailWater"></strong>
+
+</div>
+
+
+</div>
+
+
+<button
+class="btn btn-gold"
+onclick="showOrderForm()">
+
+ORDER NOW
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- ORDER -->
+
+<div
+class="order-form"
+id="orderForm">
+
+
+<button
+class="back-btn"
+onclick="backToDetails()">
+
+← BACK TO DETAILS
+
+</button>
+
+
+<h2>
+Place Your Order
+</h2>
+
+
+<p class="order-product">
+
+You are ordering:
+
+<strong id="orderProductName"></strong>
+
+</p>
+
+
+<form id="orderFormSubmit">
+
+
+<div class="form-group">
+
+<label>
+FULL NAME
+</label>
+
+<input
+type="text"
+id="customerName"
+required
+placeholder="Your full name">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+PHONE NUMBER
+</label>
+
+<input
+type="tel"
+id="customerPhone"
+required
+placeholder="+92 300 0000000">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+CITY
+</label>
+
+<input
+type="text"
+id="customerCity"
+required
+placeholder="Your city">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+DELIVERY ADDRESS
+</label>
+
+<textarea
+id="customerAddress"
+required
+placeholder="Complete delivery address"></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+QUANTITY
+</label>
+
+<select id="quantity">
+
+<option value="1">
+1 Watch
+</option>
+
+<option value="2">
+2 Watches
+</option>
+
+<option value="3">
+3 Watches
+</option>
+
+<option value="4">
+4 Watches
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn btn-gold"
+type="submit">
+
+CONFIRM ORDER
+
+</button>
+
+
+</form>
+
+
+<div
+class="success-message"
+id="successMessage">
+
+<strong>
+✓ ORDER REQUEST RECEIVED
+</strong>
+
+<br><br>
+
+Thank you for choosing ALBERTO.
+
+Our private client team will contact you shortly
+to confirm your order.
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   WATCH DATABASE
+========================================================= */
+
+const watches = [
+
+/* ================= MEN ================= */
+
+{
+name:"Alberto Gold",
+category:"Men's Collection",
+price:"$3,199",
+image:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=90",
+description:"Our signature gold collection brings luxurious styling and timeless elegance.",
+movement:"Automatic",
+case:"Gold Plated Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Royal",
+category:"Men's Collection",
+price:"$2,799",
+image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=90",
+description:"A powerful timepiece created for confident personalities.",
+movement:"Automatic",
+case:"Stainless Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Noir",
+category:"Men's Collection",
+price:"$2,499",
+image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=90",
+description:"Deep black styling combined with premium luxury finishing.",
+movement:"Automatic",
+case:"Black Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Classic",
+category:"Men's Collection",
+price:"$1,999",
+image:"https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=1000&q=90",
+description:"Classic elegance designed to remain timeless.",
+movement:"Quartz",
+case:"Stainless Steel",
+glass:"Mineral Crystal",
+water:"50M"
+},
+
+{
+name:"Alberto Executive",
+category:"Men's Collection",
+price:"$2,299",
+image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1000&q=90",
+description:"An elegant executive watch designed for modern professionals.",
+movement:"Automatic",
+case:"Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Prestige",
+category:"Men's Collection",
+price:"$3,499",
+image:"https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1000&q=90",
+description:"The ultimate expression of ALBERTO prestige.",
+movement:"Automatic",
+case:"Premium Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+/* ================= WOMEN ================= */
+
+{
+name:"Alberto Rose",
+category:"Women's Collection",
+price:"$2,199",
+image:"https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1000&q=90",
+description:"Elegant rose-gold styling designed for graceful sophistication.",
+movement:"Quartz",
+case:"Rose Gold Steel",
+glass:"Sapphire Crystal",
+water:"50M"
+},
+
+{
+name:"Alberto Pearl",
+category:"Women's Collection",
+price:"$1,899",
+image:"https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1000&q=90",
+description:"A delicate luxury design inspired by timeless beauty.",
+movement:"Quartz",
+case:"Steel",
+glass:"Mineral Crystal",
+water:"50M"
+},
+
+{
+name:"Alberto Diamond",
+category:"Women's Collection",
+price:"$3,299",
+image:"https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=1000&q=90",
+description:"A refined statement piece with luxurious detailing.",
+movement:"Automatic",
+case:"Gold Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Elite",
+category:"Women's Collection",
+price:"$2,499",
+image:"https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1000&q=90",
+description:"Sophisticated design created for elegant occasions.",
+movement:"Quartz",
+case:"Rose Gold",
+glass:"Sapphire Crystal",
+water:"50M"
+},
+
+{
+name:"Alberto Grace",
+category:"Women's Collection",
+price:"$1,799",
+image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1000&q=90",
+description:"Minimal luxury with graceful proportions.",
+movement:"Quartz",
+case:"Stainless Steel",
+glass:"Mineral Crystal",
+water:"50M"
+},
+
+{
+name:"Alberto Royale Femme",
+category:"Women's Collection",
+price:"$2,899",
+image:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1000&q=90",
+description:"A premium feminine timepiece with royal character.",
+movement:"Automatic",
+case:"Gold Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+/* ================= COUPLE ================= */
+
+{
+name:"Alberto Forever",
+category:"Couple Collection",
+price:"$3,999",
+image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1000&q=90",
+description:"A matching luxury collection created for two.",
+movement:"Automatic",
+case:"Premium Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Romance",
+category:"Couple Collection",
+price:"$3,599",
+image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=90",
+description:"Two elegant watches celebrating a timeless connection.",
+movement:"Automatic",
+case:"Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Eternity",
+category:"Couple Collection",
+price:"$4,299",
+image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=90",
+description:"Designed for couples who believe every moment matters.",
+movement:"Automatic",
+case:"Gold Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Harmony",
+category:"Couple Collection",
+price:"$3,299",
+image:"https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1000&q=90",
+description:"Perfectly balanced luxury for two.",
+movement:"Quartz",
+case:"Steel",
+glass:"Sapphire Crystal",
+water:"50M"
+},
+
+{
+name:"Alberto Promise",
+category:"Couple Collection",
+price:"$3,799",
+image:"https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1000&q=90",
+description:"A sophisticated matching collection built around timeless promises.",
+movement:"Automatic",
+case:"Rose Gold Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+},
+
+{
+name:"Alberto Signature Duo",
+category:"Couple Collection",
+price:"$4,599",
+image:"https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=1000&q=90",
+description:"Our signature couple collection for unforgettable moments.",
+movement:"Automatic",
+case:"Premium Gold Steel",
+glass:"Sapphire Crystal",
+water:"100M"
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let selectedWatch = null;
+
+
+/* =========================================================
+   CREATE PRODUCT CARDS
+========================================================= */
+
+function createCards(list, elementId){
+
+    const container =
+        document.getElementById(elementId);
+
+    container.innerHTML = "";
+
+    list.forEach((watch,index)=>{
+
+        const realIndex =
+            watches.indexOf(watch);
+
+        const card =
+            document.createElement("div");
+
+        card.className = "watch-card";
+
+
+        card.innerHTML = `
+
+            <div class="watch-image">
+
+                <span class="watch-badge">
+
+                    ${index === 0
+                        ? "SIGNATURE"
+                        : "ALBERTO"}
+
+                </span>
+
+                <img
+                    src="${watch.image}"
+                    alt="${watch.name}"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="watch-info">
+
+                <h3>
+                    ${watch.name}
+                </h3>
+
+                <div class="type">
+                    ${watch.category}
+                </div>
+
+                <div class="watch-bottom">
+
+                    <div class="price">
+                        ${watch.price}
+                    </div>
+
+                    <button
+                        class="order-btn"
+                        onclick="openProduct(event, ${realIndex})">
+
+                        ORDER NOW
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener("click",(e)=>{
+
+            if(
+                e.target.tagName === "BUTTON"
+            ){
+
+                return;
+
+            }
+
+            openProduct(
+                e,
+                realIndex
+            );
+
+        });
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD PRODUCTS
+========================================================= */
+
+createCards(
+    watches.slice(0,6),
+    "mensGrid"
+);
+
+createCards(
+    watches.slice(6,12),
+    "womensGrid"
+);
+
+createCards(
+    watches.slice(12,18),
+    "coupleGrid"
+);
+
+
+/* =========================================================
+   OPEN PRODUCT
+========================================================= */
+
+function openProduct(event,index){
+
+    if(event){
+
+        event.stopPropagation();
+
+    }
+
+    selectedWatch =
+        watches[index];
+
+
+    document.getElementById(
+        "detailImage"
+    ).src =
+        selectedWatch.image;
+
+
+    document.getElementById(
+        "detailName"
+    ).textContent =
+        selectedWatch.name;
+
+
+    document.getElementById(
+        "detailPrice"
+    ).textContent =
+        selectedWatch.price;
+
+
+    document.getElementById(
+        "detailCategory"
+    ).textContent =
+        selectedWatch.category;
+
+
+    document.getElementById(
+        "detailDescription"
+    ).textContent =
+        selectedWatch.description;
+
+
+    document.getElementById(
+        "detailMovement"
+    ).textContent =
+        selectedWatch.movement;
+
+
+    document.getElementById(
+        "detailCase"
+    ).textContent =
+        selectedWatch.case;
+
+
+    document.getElementById(
+        "detailGlass"
+    ).textContent =
+        selectedWatch.glass;
+
+
+    document.getElementById(
+        "detailWater"
+    ).textContent =
+        selectedWatch.water;
+
+
+    document.getElementById(
+        "productDetail"
+    ).style.display =
+        "grid";
+
+
+    document.getElementById(
+        "orderForm"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "successMessage"
+    ).classList.remove("show");
+
+
+    document.getElementById(
+        "productModal"
+    ).classList.add("active");
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+    document.getElementById(
+        "productModal"
+    ).classList.remove("active");
+
+    document.body.style.overflow =
+        "auto";
+
+}
+
+
+/* =========================================================
+   ORDER FORM
+========================================================= */
+
+function showOrderForm(){
+
+    if(!selectedWatch){
+
+        return;
+
+    }
+
+    document.getElementById(
+        "productDetail"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "orderForm"
+    ).classList.add("active");
+
+
+    document.getElementById(
+        "orderProductName"
+    ).textContent =
+        selectedWatch.name;
+
+}
+
+
+function backToDetails(){
+
+    document.getElementById(
+        "productDetail"
+    ).style.display =
+        "grid";
+
+
+    document.getElementById(
+        "orderForm"
+    ).classList.remove("active");
+
+}
+
+
+/* =========================================================
+   ORDER SUBMIT
+========================================================= */
+
+document
+.getElementById("orderFormSubmit")
+.addEventListener(
+"submit",
+function(e){
+
+    e.preventDefault();
+
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value;
+
+
+    const phone =
+        document.getElementById(
+            "customerPhone"
+        ).value;
+
+
+    const city =
+        document.getElementById(
+            "customerCity"
+        ).value;
+
+
+    const address =
+        document.getElementById(
+            "customerAddress"
+        ).value;
+
+
+    const quantity =
+        document.getElementById(
+            "quantity"
+        ).value;
+
+
+    console.log({
+
+        product:
+            selectedWatch.name,
+
+        price:
+            selectedWatch.price,
+
+        customer:
+            name,
+
+        phone:
+            phone,
+
+        city:
+            city,
+
+        address:
+            address,
+
+        quantity:
+            quantity
+
+    });
+
+
+    document.getElementById(
+        "successMessage"
+    ).classList.add("show");
+
+
+    this.reset();
+
+});
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+document
+.getElementById("contactForm")
+.addEventListener(
+"submit",
+function(e){
+
+    e.preventDefault();
+
+
+    alert(
+        "Thank you for contacting ALBERTO. Our private client team will contact you shortly."
+    );
+
+
+    this.reset();
+
+});
+
+
+/* =========================================================
+   CLOSE MODAL OUTSIDE
+========================================================= */
+
+document
+.getElementById("productModal")
+.addEventListener(
+"click",
+function(e){
+
+    if(e.target === this){
+
+        closeModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+    if(e.key === "Escape"){
+
+        closeModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById(
+"year"
+).textContent =
+new Date().getFullYear();
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener(
+"load",
+function(){
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("loader")
+        .classList.add("hide");
+
+
+        document.body
+        .classList.remove("loading");
+
+    },1000);
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target
+            .classList.add("visible");
+
+            observer.unobserve(
+                entry.target
+            );
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+revealElements.forEach(
+element=>{
+
+    observer.observe(element);
+
+});
+
+
+</script>
+
+</body>
+</html>
